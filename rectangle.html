@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+  <title>Calculate Rectangle</title>
+  
+  <style>
+  table {
+       margin: auto ;
+       width: 400px;
+       border: solid 3px red;
+       padding: 10px 10px 10px 10px;
+       font-family: "Arial";
+       font-size: 16px;
+        }
+    </style>
+	<script>
+        function calculateArea() {
+		var state = true;
+            document.getElementById("a").value = "";
+            var element = document.getElementById("tdA").getElementsByTagName("div");
+            if(element[0] !=undefined)
+               document.getElementById("tdA").removeChild(element[0]);
+			   
+			document.getElementById("b").value = "";
+            var element = document.getElementById("tdB").getElementsByTagName("div");
+            if (element[0] != undefined)
+                document.getElementById("tdB").removeChild(element[0]);
+				
+		   var a = parseFloat(document.getElementById("a").value);
+            var b = parseFloat(document.getElementById("b").value);
+		
+			 if (!Number.isFinite(a) || a<0) {
+                var divErrorA = document.createElement("div");
+                divErrorA.className = "errorDivElement";
+                var node = document.createTextNode("* Wrong input !");
+                divErrorA.appendChild(node);
+                document.getElementById("tdA").appendChild(divErrorA);
+                state = false;
+            }
+            if (!Number.isFinite(b) || b <0) {
+                var divErrorB = document.createElement("div");
+                divErrorB.className = "errorDivElement";
+                var node = document.createTextNode("* Wrong input !");
+                divErrorB.appendChild(node);
+                document.getElementById("tdB").appendChild(divErrorB);
+                state = false;
+				
+				if(state==true){
+				var area = a*b;
+			document.getElementById("area").value = area.toFixed(2);
+			}
+        }
+		
+		function calculatePerimeter() {
+		var state = true;
+            document.getElementById("a").value = "";
+            var element = document.getElementById("tdA").getElementsByTagName("div");
+            if(element[0] !=undefined)
+               document.getElementById("tdA").removeChild(element[0]);
+			   
+			document.getElementById("b").value = "";
+            var element = document.getElementById("tdB").getElementsByTagName("div");
+            if (element[0] != undefined)
+                document.getElementById("tdB").removeChild(element[0]);
+				
+		   var a = parseFloat(document.getElementById("a").value);
+            var b = parseFloat(document.getElementById("b").value);
+			
+			 if (!Number.isFinite(a) || a<0) {
+                var divErrorA = document.createElement("div");
+                divErrorA.className = "errorDivElement";
+                var node = document.createTextNode("* Wrong input !");
+                divErrorA.appendChild(node);
+                document.getElementById("tdA").appendChild(divErrorA);
+                state = false;
+            }
+            if (!Number.isFinite(b) || b <0) {
+                var divErrorB = document.createElement("div");
+                divErrorB.className = "errorDivElement";
+                var node = document.createTextNode("* Wrong input !");
+                divErrorB.appendChild(node);
+                document.getElementById("tdB").appendChild(divErrorB);
+                state = false;
+				
+				
+				if(state==true){
+				
+				var perimeter = 2*(a+b);
+			document.getElementById("perimeter").value = perimeter.toFixed(2);
+			}
+		}
+    </script>
+	</head>
+	
+	<body>
+     <form>
+     <table border="0">
+       <tr>
+         <td>a</td>
+         <td id="tdA"> <input type="text" id="a"></td>
+       </tr>
+       
+       <tr>
+          <td>b</td>
+          <td id="tdB"><input type="text" id="b"></td>
+       </tr>
+       <tr>
+          <td>Area</td>
+          <td><input type="text" disabled  id="area"/></td>
+       </tr>
+       
+       <tr>
+          <td>Perimeter</td>
+          <td><input disabled type="text" id="perimeter"></td>
+       </tr>
+       
+       <tr>
+	   <td><input type="button" value="Calculate Area" onclick="calculateArea()"></td>
+	   <td><input type="button" value="Calculate Perimeter" onclick="calculatePerimeter()"></td>
+       </tr>
+    
+     </table>
+     </form>
+  </body>
+</html>
